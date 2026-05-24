@@ -7,7 +7,6 @@ export default class TSNJS_Alert extends BASE_OBJECT {
 		super();
 		this.Name = "TSNJS_Alert";
 
-		console.error(Options);
 		this.Options = JSON.parse(Options);
 		this.Title = this.Options["Title"];
 		this.Description = this.Options["Description"];
