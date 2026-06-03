@@ -13,7 +13,7 @@ export default class TSNJS_Notification extends BASE_OBJECT {
 
 		for (let Index = 0; Index < 100; Index++) {
 			if (!Common.Notifications.includes(Index)) {
-				this.css = `top: ${6 + Index * 5}rem;`;
+				this.CSS = `top: ${6 + Index * 8}rem;`;
 				this.Notification = Index;
 				Common.Notifications.push(Index);
 				break;
