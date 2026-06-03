@@ -38,7 +38,7 @@ export default class TSNJS_Notification extends BASE_OBJECT {
 		Log.Info(`${this.Name} (ID: ${this.ID}) - START: [${this.Color}] ${this.Text} (${this.Duration}ms)".`);
 		this.Reference = Reference;
 		await Time.Sleep(this.Duration);
-		await Component.Delete(this.id);
+		await Component.Delete(this.ID);
 	};
 
 
