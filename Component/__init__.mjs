@@ -88,7 +88,24 @@ async function Refresh() {
 		await Refresh();
 		Log.Awaited().OK();
 	};
+	await Repair_Dashlist();
 	return;
+};
+
+
+
+function Repair_Dashlist() {
+	const LISTS = document.getElementsByTagName("UL");
+	Log.Debug("Repairing Dashlists...");
+	for (let x = 0; x < LISTS.length; x++) {
+		for (let y = 0; y < LISTS[x].children.length; y++) {
+			if (["P", "SPAN", "H1", "H2", "H3", "H4", "H5", "H6"].includes(LISTS[x].children[y].tagName)) {
+				Log.Debug(`TSNJS.Component.Repair_Dashlist(): List with children "${LISTS[x].children[y].tagName}" has been fixed.`);
+				LISTS[x].children[y].outerHTML = `<div class="TSNJS_DashFix">${LISTS[x].children[y].outerHTML}</div>`;
+			};
+		};
+	};
+	Log.Awaited().OK();
 };
 
 
