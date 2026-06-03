@@ -179,7 +179,7 @@ async function Create(Component, Parent = null, Pseudo = "Before", Replaced = nu
 		else { Parent.appendChild(Component.DOM) };
 	};
 
-	await Component.Start(document.getElementById(Component.ID));
+	Component.Start(document.getElementById(Component.ID)); // Intentionally NOT await this
 	Active.push(Component);
 	Log.Awaited().OK();
 };
