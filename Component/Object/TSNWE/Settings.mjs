@@ -37,8 +37,10 @@ export default class TSNJS_Settings extends BASE_OBJECT {
 			<p>She'll be there until this isn't finished.</p>
 		</div>
 		<a href="https://www.pixiv.net/en/artworks/108979706" target="_blank"><img src="/Root/108979706_p0-transparent.gif" style="max-width: 100%;"></a>
+		<div class="Source">
+			<p>Source of the GIF was deleted from Pixiv :( If someone knows the original artist please do link me to it</p>
+		</div>
 	</div>
-	<spacer></spacer>
 </div>
 `;
 	};

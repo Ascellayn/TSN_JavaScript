@@ -46,7 +46,7 @@ async function Ignition() {
 
 	// Loadrix: Hide any Component Changes
 	await Component.Create(new Component.Object.Loadrix(), Common.BODY);
-	await Component.Create(new Component.Object.Copyright(("TSNJS_Copyright" in window) ? TSNJS_Copyright : ""));
+	await Component.Create(new Component.Object.Copyright((typeof TSNJS_Copyright !== undefined) ? TSNJS_Copyright : ""));
 
 	// Nested Flag
 	document.documentElement.setAttribute("Nested", Common.isNested);
