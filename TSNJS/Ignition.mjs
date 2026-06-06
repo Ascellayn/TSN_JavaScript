@@ -46,56 +46,75 @@ async function Ignition() {
 
 	// Loadrix: Hide any Component Changes
 	await Component.Create(new Component.Object.Loadrix(), Common.BODY);
-	await Component.Create(new Component.Object.Copyright((typeof TSNJS_Copyright !== "undefined") ? TSNJS_Copyright : ""));
+	try {
+		await Component.Create(new Component.Object.Copyright((typeof TSNJS_Copyright !== "undefined") ? TSNJS_Copyright : ""));
 
-	// Nested Flag
-	document.documentElement.setAttribute("Nested", Common.isNested);
-	Step++; await Update_Loadrix(Step, Steps);
+		// Nested Flag
+		document.documentElement.setAttribute("Nested", Common.isNested);
+		Step++; await Update_Loadrix(Step, Steps);
 
 
 
-	// Load Awaited Objects
-	for (const Compo of TSNJS_Components) {
-		let CompoName, CompoArgs;
+		// Load Awaited Objects
+		for (const Compo of TSNJS_Components) {
+			let CompoName, CompoArgs;
 
-		if (Array.isArray(Compo)) {
-			CompoName = Compo[0];
-			CompoArgs = Compo.slice(1);
-		} else {
-			CompoName = Compo,
-			CompoArgs = []
+			if (Array.isArray(Compo)) {
+				CompoName = Compo[0];
+				CompoArgs = Compo.slice(1);
+			} else {
+				CompoName = Compo,
+				CompoArgs = []
+			};
+			Log.Info(`TSNJS.Ignition(): Awaited Component "${CompoName}" with Arguments "${CompoArgs}".`);
+			await Component.Create(new Component.Object[CompoName](...CompoArgs), TSNJS.BODY);
+			Step++;
 		};
-		Log.Info(`TSNJS.Ignition(): Awaited Component "${CompoName}" with Arguments "${CompoArgs}".`);
-		await Component.Create(new Component.Object[CompoName](...CompoArgs), TSNJS.BODY);
-		Step++;
-	};
 
 
 
-	// Default Background
-	if (Common.BACKGROUND.innerHTML == "") {
-		await Component.Create(new Component.Object.Background());
-	};
-	Step++; Update_Loadrix(Step, Steps);
-
-
-
-	// Theme Switching Keybind
-	document.addEventListener("keyup", function(e) {
-		if (e.ctrlKey && e.key == "t") {
-			TSNJS.Theme.Switch.Theme();
+		// Default Background
+		if (Common.BACKGROUND.innerHTML == "") {
+			await Component.Create(new Component.Object.Background());
 		};
-		if (e.ctrlKey && e.key == "h") {
-			TSNJS.Theme.Switch.Contrasted();
-		}
-	});
-	Step++; Update_Loadrix(Step, Steps);
+		Step++; Update_Loadrix(Step, Steps);
 
-	await Component.Refresh();
-	Step++; Update_Loadrix(Step, Steps);
 
-	await Images(Step, Steps);
-	await Component.Delete("TSNJS_Loadrix");
+
+		// Theme Switching Keybind
+		document.addEventListener("keyup", function(e) {
+			if (e.ctrlKey && e.key == "t") {
+				TSNJS.Theme.Switch.Theme();
+			};
+			if (e.ctrlKey && e.key == "h") {
+				TSNJS.Theme.Switch.Contrasted();
+			}
+		});
+		Step++; Update_Loadrix(Step, Steps);
+
+		await Component.Refresh();
+		Step++; Update_Loadrix(Step, Steps);
+
+		await Images(Step, Steps);
+		await Component.Delete("TSNJS_Loadrix");
+	} catch(E0) {
+		// Failsafe if Ignition fails
+		try {
+			await Component.Delete("TSNJS_Loadrix");
+		} catch {
+			// Ok shit has truly hit the fan now
+			var Loadrix = document.getElementsByClassName("TSNJS_Loadrix");
+			Loadrix.forEach(element => {
+				element.remove();
+			});
+		};
+		try {
+			await Component.Create(new Component.Object.Notification("Red", `<b>TSNJS: IGNITION FAILURE</b>\nReport this as soon as possible to Ascellayn, something has gone HORRIBLY wrong!\nSome elements on this page might have not loaded properly.\n\n<code>ERROR: ${E0}</code>`, 30000));
+		} catch(E1) {
+			// Now it really is.
+			document.documentElement.innerHTML = `<div class="Banner Red" style="z-index: 6948; display: block;"><h1>TSNJS: SEVERE IGNITION FAILURE</h1><p>Report this as soon as possible to Ascellayn, something has gone SO HORRIBLY BAD that TSNJS' component system failed entirely!\nMany elements on this page might be broken or have not loaded!\n\n<code>ERROR (Ignition): ${E0}</code>\n<code>ERROR (TSNJS.Components): ${E1}</code></p></div>${document.documentElement.innerHTML}`
+		};
+	};
 };
 
 
