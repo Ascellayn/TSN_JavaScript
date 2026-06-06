@@ -8,6 +8,7 @@ import Component from "../../__init__.mjs";
 export default class TSNJS_Redirecter extends BASE_OBJECT {
 	constructor(URL, Delay = 10) {
 		super();
+		if (URL.slice(0,8) != "https://") { URL = "https://" + URL; };
 		this.Name = "TSNJS_Redirecter";
 		this.Override_DOM = Common.FLOATING;
 
@@ -20,7 +21,7 @@ export default class TSNJS_Redirecter extends BASE_OBJECT {
 		<h1 class="Super">Redirecting</h1>
 		<h2 class="Quiet TCenter">You are about to leave The Sirio Network.</h2>
 		<br>
-		<p><a href="${this.URL}"><code>The Sirio Network → ${this.URL}</code></a></p>
+		<p class="TCenter"><a href="${this.URL}"><code>The Sirio Network → ${this.URL.slice(8)}</code></a></p>
 	</header>
 	<div class="Redirecter-StripeTop"></div>
 	<div class="Redirecter-StripeBot"></div>
