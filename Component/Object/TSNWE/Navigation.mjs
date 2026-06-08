@@ -20,19 +20,19 @@ export default class TSNJS_Navigation extends BASE_OBJECT {
 <div>
 	<a href="/home"><img src="${this.URL_Banner}"></a>
 	<div>
-		<a class="Button Invert" href="/login"><p>🏗️ Configurator</p></a>
-		<a class="Button Invert" href="https://sirio-network.com/discord" target="_blank"><p title="TSN Discord">💬 TSN Discord</p></a>
+		<button class="Invert"><a href="/login"><h3>🏗️ Configurator</h3></a></button>
+		<button class="Invert"><a href="https://sirio-network.com/discord" target="_blank"><p title="TSN Discord">💬 TSN Discord</h3></a></button>
 		<div></div>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</p></a>
+		<button class="Circle Invert" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</h3></button>
 	</div>
 </div>
 <div>
 	<a href="/home"><img src="${this.URL_Logo}"></a>
 	<div>
-		<a class="Button Invert" href="/login"><p title="Configurator">🏗️</p></a>
-		<a class="Button Invert" href="https://sirio-network.com/discord" target="_blank"><p title="TSN Discord">💬</p></a>
+		<button class="Invert"><a href="/login"><p title="Configurator">🏗️</h3></a></button>
+		<button class="Invert"><a href="https://sirio-network.com/discord" target="_blank"><p title="TSN Discord">💬</h3></a></button>
 		<div></div>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</p></a>
+		<button class="Circle Invert" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</h3></button>
 	</div>
 </div>`; break;
 			default:
@@ -40,25 +40,25 @@ export default class TSNJS_Navigation extends BASE_OBJECT {
 <div>
 	<a href="/home"><img src="${this.URL_Banner}"></a>
 	<div>
-		<a class="Button Invert" href="/youtube"><p>🎥 YouTube</p></a>
-		<a class="Button Invert" href="/projects"><p>🗺️ Projects</p></a>
-		<a class="Button Invert" href="/articles"><p>📰 Articles</p></a>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Nested('/contact'));"><p>📧 Contact</p></a>
+		<button class="Invert"><a href="/youtube"><h3>🎥 YouTube</h3></a></button>
+		<button class="Invert"><a href="/projects"><h3>🗺️ Projects</h3></a></button>
+		<button class="Invert"><a href="/articles"><h3>📰 Articles</h3></a></button>
+		<button class="Invert"><a onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Nested('/contact'));"><h3>📧 Contact</h3></a></button>
 		<div></div>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Nested('/Seminar'));"><p title="Account">💾</p></a>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</p></a>
+		<button class="Circle Invert" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Nested('/Seminar'));"><p title="Account">💾</h3></button>
+		<button class="Circle Invert" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</h3></button>
 	</div>
 </div>
 <div>
 	<a href="/home"><img src="${this.URL_Logo}"></a>
 	<div>
-		<a class="Button Invert" href="/youtube"><p title="YouTube">🎥</p></a>
-		<a class="Button Invert" href="/projects"><p title="Projects">🗺️</p></a>
-		<a class="Button Invert" href="/articles"><p title="Articles">📰</p></a>
-		<a class="Button Invert" href="/contact"><p title="Contact">📧</p></a>
+		<button class="Circle Invert"><a href="/youtube"><p title="YouTube">🎥</h3></a></button>
+		<button class="Circle Invert"><a href="/projects"><p title="Projects">🗺️</h3></a></button>
+		<button class="Circle Invert"><a href="/articles"><p title="Articles">📰</h3></a></button>
+		<button class="Circle Invert"><a href="/contact"><p title="Contact">📧</h3></a></button>
 		<div></div>
-		<a class="Button Invert" href="/Seminar"><p title="Account">💾</p></a>
-		<a class="Button Invert" href="#" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</p></a>
+		<button class="Circle Invert"><a href="/Seminar"><p title="Account">💾</h3></a></button>
+		<button class="Circle Invert" onclick="TSNJS.Component.Create(new TSNJS.Component.Object.Settings());"><p title="Settings">⚙️</h3></button>
 	</div>
 </div>`; break;
 			}

@@ -17,17 +17,17 @@ export default class TSNJS_Settings extends BASE_OBJECT {
 <div>
 	<header class="Flex_Between">
 		<h1>Settings</h1>
-		<a class="Button_Circle" href="#" onclick="TSNJS.Component.Delete(${this.ID})"><p>X</p></a>
+		<button class="Circle" onclick="TSNJS.Component.Delete(${this.ID})"><p>X</p></button>
 	</header>
 	<spacer></spacer>
 	<div>
 		<h2>TSNWE Theme Enforcement</h2>
 		<div class="Flex Flex_ForceWidth" style="flex-direction: column; --Flex_ForceWidth: calc(100% - var(--UI_Padding) * 2);">
-			<a class="Button" href="#" onclick="TSNJS.Theme.Switch.Theme('Light'); localStorage.setItem('TSNWE/forceTheme', 'Light');"><p>Force Light Theme</p></a>
-			<a class="Button" href="#" onclick="TSNJS.Theme.Switch.Theme('Dark'); localStorage.setItem('TSNWE/forceTheme', 'Dark');"><p>Force Dark Theme</p></a>
-			<a class="Button" href="#" onclick="localStorage.removeItem('TSNWE/forceTheme');"><p>Disable Theme Enforcing</p></a>
-			<a class="Button" href="#" onclick="TSNJS.Theme.Switch.Contrasted('true'); localStorage.setItem('TSNWE/Contrasted', 'true');"><p>Enable High Contrast</p></a>
-			<a class="Button" href="#" onclick="TSNJS.Theme.Switch.Contrasted('false'); localStorage.removeItem('TSNWE/Contrasted');"><p>Disable High Contrast</p></a>
+			<button><a href="#" onclick="TSNJS.Theme.Switch.Theme('Light'); localStorage.setItem('TSNWE/forceTheme', 'Light');"><p>Force Light Theme</p></a></button>
+			<button><a href="#" onclick="TSNJS.Theme.Switch.Theme('Dark'); localStorage.setItem('TSNWE/forceTheme', 'Dark');"><p>Force Dark Theme</p></a></button>
+			<button><a href="#" onclick="localStorage.removeItem('TSNWE/forceTheme');"><p>Disable Theme Enforcing</p></a></button>
+			<button><a href="#" onclick="TSNJS.Theme.Switch.Contrasted('true'); localStorage.setItem('TSNWE/Contrasted', 'true');"><p>Enable High Contrast</p></a></button>
+			<button><a href="#" onclick="TSNJS.Theme.Switch.Contrasted('false'); localStorage.removeItem('TSNWE/Contrasted');"><p>Disable High Contrast</p></a></button>
 		</div>
 		<spacer></spacer>
 		<div>
